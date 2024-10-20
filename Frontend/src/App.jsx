@@ -7,6 +7,8 @@ import PrivateRoute from "./components/PrivateRoute";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar"; // Import Navbar
 import Hotels from "./pages/Hotels";
+import Blood from "./pages/Blood";
+import BloodForm from "./pages/BloodForm";
 
 function App() {
   return (
@@ -30,6 +32,22 @@ function App() {
           element={
             <PrivateRoute>
               <Hotels />
+            </PrivateRoute>
+          } 
+        />
+        <Route 
+          path="/blood" 
+          element={
+            <PrivateRoute>
+              <Blood />
+            </PrivateRoute>
+          } 
+        />
+        <Route 
+          path="/bloodForm" 
+          element={
+            <PrivateRoute>
+              <BloodForm/>
             </PrivateRoute>
           } 
         />
