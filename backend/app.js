@@ -8,11 +8,14 @@ import hotelRouter from "./routes/Hotel.router.js";
 dotenv.config();
 
 const app = express();
+// In your index.js or app.js
+app.use(cors({
+    origin: '*', // Ensure this matches your frontend URL exactly (no trailing slash)
+}));
 
 // Configure CORS to allow requests from your frontend domain (localhost in your case)
 app.use(cors({
-    origin: "http://localhost:5173", // Replace with the Vite frontend URL
-    credentials: true // Allow cookies to be sent
+    origin: "*", // Replace with the Vite frontend URL
 }));
 
 // Middleware setup

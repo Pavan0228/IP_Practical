@@ -1,11 +1,16 @@
 // src/components/PrivateRoute.jsx
 import React from "react";
 import { Navigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
-const PrivateRoute = ({ element }) => {
-    const accessToken = localStorage.getItem("accessToken");
+const PrivateRoute = ({ children }) => {
+    const accessToken = Cookies.get("accessToken");
 
-    return accessToken ? element : <Navigate to="/login" />;
+    if (!accessToken) {
+        return <Navigate to="/login" replace />;
+    }
+
+    return children;
 };
 
 export default PrivateRoute;
