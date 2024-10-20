@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import Register from "./pages/Register";
+import Navbar from "./components/Navbar"; // Import Navbar
+import Hotels from "./pages/Hotels";
 
 function App() {
   return (
@@ -19,6 +21,14 @@ function App() {
           element={
             <PrivateRoute>
               <Home />
+            </PrivateRoute>
+          } 
+        />
+        <Route 
+          path="/hotels" 
+          element={
+            <PrivateRoute>
+              <Hotels />
             </PrivateRoute>
           } 
         />
