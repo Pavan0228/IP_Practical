@@ -11,6 +11,7 @@ import Hotels from "./pages/Hotels";
 function App() {
   return (
     <Router>
+      <Navbar /> {/* Add Navbar */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
