@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
 	// Check if tokens exist in cookies to set authentication status
 	useEffect(() => {
 		const accessToken = Cookies.get("accessToken");
-		setIsAuthenticated(!!accessToken); 
+		setIsAuthenticated(!!accessToken);
 	}, []);
 
 	const login = () => setIsAuthenticated(true);
