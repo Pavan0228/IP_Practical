@@ -5,8 +5,8 @@ import HotelList from "../components/HotelList";
 
 const Hotels = () => {
     const [hotels, setHotels] = useState([]);
-    const [hotelName, sethotelName] = useState("");
-    const [searchedHotels, setSearchedHotels] = useState([]); // Changed to an array
+    const [hotelName, setHotelName] = useState("");
+    const [searchedHotels, setSearchedHotels] = useState([]);
     const [hotelToUpdate, setHotelToUpdate] = useState({
         name: "",
         location: "",
@@ -15,76 +15,98 @@ const Hotels = () => {
         pricePerNight: 0,
     });
     const [hotelId, setHotelId] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
     // Fetch all hotels
     const fetchHotels = async () => {
+        setLoading(true);
         try {
-            const response = await axios.get("http://localhost:3000/api/hotels", {
-                withCredentials: true,
-            });
+            const response = await axios.get("http://localhost:3000/api/hotels");
             setHotels(response.data);
+            setError(""); // Clear any previous errors
         } catch (error) {
+            setError("Error fetching hotels.");
             console.error(error.response.data);
+        } finally {
+            setLoading(false);
         }
     };
 
     // Search hotel by Name
     const handleSearchHotel = async () => {
+        if (!hotelName.trim()) return; // Prevent empty searches
+        setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:3000/api/hotels/search/${hotelName}`, {
-                withCredentials: true,
-            });
-    
-            // Check if there are hotels in the response
+            const response = await axios.get(`http://localhost:3000/api/hotels/search/${hotelName}`);
             if (response.data.length > 0) {
-                setSearchedHotels(response.data); // Store all returned hotels
-                setHotelId(response.data[0]._id); // Set hotelId for updating/deleting
+                setSearchedHotels(response.data);
+                setHotelId(response.data[0]._id);
                 setHotelToUpdate({
                     name: response.data[0].name,
                     location: response.data[0].location,
                     rooms: response.data[0].rooms,
-                    amenities: response.data[0].amenities.join(", "), // Join amenities into a string
+                    amenities: response.data[0].amenities.join(", "),
                     pricePerNight: response.data[0].pricePerNight,
                 });
+                setError(""); // Clear any previous errors
             } else {
-                setSearchedHotels([]); // Clear searched hotels if none found
-                setHotelId(""); // Clear hotelId if no hotel found
+                setSearchedHotels([]);
+                setHotelId("");
+                setError("No hotels found with that name.");
             }
-    
         } catch (error) {
+            setError("Error searching hotels.");
             console.error(error.response.data);
+        } finally {
+            setLoading(false);
         }
     };
-    
+
     // Update hotel by ID
     const handleUpdateHotel = async () => {
+        setLoading(true);
         try {
-            const response = await axios.put(
-                `http://localhost:3000/api/hotels/${hotelId}`,
-                hotelToUpdate,
-                {
-                    withCredentials: true,
-                }
-            );
+            await axios.put(`http://localhost:3000/api/hotels/${hotelId}`, hotelToUpdate);
             fetchHotels(); // Refresh the list after updating
             alert("Hotel updated successfully");
+            resetForm();
         } catch (error) {
+            setError("Error updating hotel.");
             console.error(error.response.data);
+        } finally {
+            setLoading(false);
         }
     };
 
     // Delete hotel by ID
     const handleDeleteHotel = async () => {
+        setLoading(true);
         try {
-            await axios.delete(`http://localhost:3000/api/hotels/${hotelId}`, {
-                withCredentials: true,
-            });
+            await axios.delete(`http://localhost:3000/api/hotels/${hotelId}`);
             fetchHotels(); // Refresh the list after deletion
-            setSearchedHotels([]); // Clear searched hotels after deletion
             alert("Hotel deleted successfully");
+            resetForm();
         } catch (error) {
+            setError("Error deleting hotel.");
             console.error(error.response.data);
+        } finally {
+            setLoading(false);
         }
+    };
+
+    // Reset the form and states
+    const resetForm = () => {
+        setHotelId("");
+        setHotelToUpdate({
+            name: "",
+            location: "",
+            rooms: 0,
+            amenities: "",
+            pricePerNight: 0,
+        });
+        setHotelName("");
+        setSearchedHotels([]);
     };
 
     useEffect(() => {
@@ -94,13 +116,16 @@ const Hotels = () => {
     return (
         <div>
             <h1 className="text-2xl mb-4">Manage Hotels</h1>
+            {loading && <p className="text-blue-500">Loading...</p>}
+            {error && <p className="text-red-500">{error}</p>}
+            
             {/* Search Hotel by ID */}
             <div>
                 <input
                     type="text"
                     value={hotelName}
-                    onChange={(e) => sethotelName(e.target.value)}
-                    placeholder="Enter Hotel ID"
+                    onChange={(e) => setHotelName(e.target.value)}
+                    placeholder="Enter Hotel Name"
                     className="border p-2 mb-4"
                 />
                 <button
