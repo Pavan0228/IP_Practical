@@ -1,62 +1,64 @@
-// src/components/HotelForm.jsx
 import React, { useState } from "react";
 import axios from "axios";
 
 const HotelForm = ({ onHotelAdded }) => {
-    const [hotelData, setHotelData] = useState({
-        name: "",
-        location: "",
-        price: "",
-    });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setHotelData((prev) => ({ ...prev, [name]: value }));
-    };
+    const [name, setName] = useState("");
+    const [location, setLocation] = useState("");
+    const [rooms, setRooms] = useState(0);
+    const [amenities, setAmenities] = useState("");
+    const [pricePerNight, setPricePerNight] = useState(0);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:3000/api/hotels", hotelData, {
+            const newHotel = { name, location, rooms, amenities, pricePerNight };
+            const response = await axios.post("http://localhost:3000/api/hotels", newHotel, {
                 withCredentials: true,
             });
-            onHotelAdded(response.data.hotel);
-            setHotelData({ name: "", location: "", price: "" });
+            onHotelAdded(response.data);
         } catch (error) {
-            console.error(error.response.data);
+            console.error(error.response?.data || "Error creating hotel");
         }
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit}>
             <input
                 type="text"
-                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="Hotel Name"
-                value={hotelData.name}
-                onChange={handleChange}
-                className="p-2 border border-gray-300 rounded"
-                required
+                className="mb-2 p-2 border"
             />
             <input
                 type="text"
-                name="location"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
                 placeholder="Location"
-                value={hotelData.location}
-                onChange={handleChange}
-                className="p-2 border border-gray-300 rounded"
-                required
+                className="mb-2 p-2 border"
             />
             <input
                 type="number"
-                name="price"
-                placeholder="Price"
-                value={hotelData.price}
-                onChange={handleChange}
-                className="p-2 border border-gray-300 rounded"
-                required
+                value={rooms}
+                onChange={(e) => setRooms(e.target.value)}
+                placeholder="Number of Rooms"
+                className="mb-2 p-2 border"
             />
-            <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+            <input
+                type="text"
+                value={amenities}
+                onChange={(e) => setAmenities(e.target.value)}
+                placeholder="Amenities"
+                className="mb-2 p-2 border"
+            />
+            <input
+                type="number"
+                value={pricePerNight}
+                onChange={(e) => setPricePerNight(e.target.value)}
+                placeholder="Price Per Night"
+                className="mb-2 p-2 border"
+            />
+            <button type="submit" className="p-2 bg-blue-500 text-white">
                 Add Hotel
             </button>
         </form>
