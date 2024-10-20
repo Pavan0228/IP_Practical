@@ -15,10 +15,9 @@ const generateAccessTokenAndRefreshToken = async (userId) => {
 
         return { accessToken, refreshToken };
     } catch (error) {
-        throw new Error(
-            500,
-            "Something went wrong while generating refresh and access token"
-        );
+        return res.status(500).json({
+            message: "An error occurred while generating tokens",
+        });
     }
 };
 
@@ -31,22 +30,26 @@ const registerUser = asyncHandler(async (req, res) => {
         !password?.trim() ||
         !username?.trim()
     ) {
-        res.status(400);
-        throw new Error("All fields are required");
+        res.status(400).json({
+            message: "All fields are required",
+        });
     }
 
     const userExists = await User.findOne({ $or: [{ email }, { username }] });
 
+    console.log(userExists);
     if (userExists) {
-        res.status(400);
-        throw new Error("User already exists");
+        res.status(400).json({
+            message: "User already exists",
+        });
     }
 
     const user = await User.create({ fullName, email, password, username });
 
     if (!user) {
-        res.status(400);
-        throw new Error("Invalid user data");
+        res.status(400).json({
+            message: "An error occurred while creating the user",
+        });
     }
 
     const userData = user.toObject();
@@ -63,30 +66,34 @@ const loginUser = asyncHandler(async (req, res) => {
     const { email, username, password } = req.body;
 
     if ((!email && !username) || !password) {
-        res.status(400);
-        throw new Error("All fields are required");
+        res.status(400).json({
+            message: "Email/Username and password are required",
+        });
     }
 
     let user;
     if (email) {
         user = await User.findOne({ email });
         if (!user) {
-            res.status(404);
-            throw new Error("Email not found");
+            res.status(404).json({
+                message: "Email not found",
+            })
         }
     } else if (username) {
         user = await User.findOne({ username });
         if (!user) {
-            res.status(404);
-            throw new Error("Username not found");
+            res.status(404).json({
+                message: "Username not found",
+            })
         }
     }
 
     const isPasswordCorrect = await user.checkPassword(password);
 
     if (!isPasswordCorrect) {
-        res.status(401);
-        throw new Error("Invalid credentials");
+        res.status(401).json({
+            message: "Invalid password",
+        });
     }
 
     const { accessToken, refreshToken } = await generateAccessTokenAndRefreshToken(user._id);

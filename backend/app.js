@@ -11,8 +11,7 @@ dotenv.config();
 const app = express();
 // In your index.js or app.js
 app.use(cors({
-    origin: "*", // Replace with your frontend URL
-    credentials: true // Allow credentials (cookies)
+    origin: '*', // Ensure this matches your frontend URL exactly (no trailing slash)
 }));
 
 
