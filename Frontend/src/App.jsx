@@ -9,11 +9,18 @@ import Navbar from "./components/Navbar"; // Import Navbar
 import Hotels from "./pages/Hotels";
 import Blood from "./pages/Blood";
 import BloodForm from "./pages/BloodForm";
+import NavbarPart2 from "./components/NavbarPart2";
+import AddProduct from "./pages/AddProduct";
+import ProductsList from "./components/ProductsList";
+import ProductDetail from "./components/ProductDetail";
+import MyProduct from "./components/MyProduct";
+import BuyProductList from "./components/BuyProductList";
 
 function App() {
   return (
     <Router>
       <Navbar /> {/* Add Navbar */}
+      <NavbarPart2 /> {/* Add NavbarPart2 */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -48,6 +55,46 @@ function App() {
           element={
             <PrivateRoute>
               <BloodForm/>
+            </PrivateRoute>
+          } 
+        />
+        <Route 
+          path="/add" 
+          element={
+            <PrivateRoute>
+              <AddProduct />
+            </PrivateRoute>
+          } 
+        />
+        <Route 
+          path="/getallproducts" 
+          element={
+            <PrivateRoute>
+              <ProductsList />
+            </PrivateRoute>
+          } 
+        />
+        <Route 
+          path="/product/:id" 
+          element={
+            <PrivateRoute>
+              <ProductDetail />
+            </PrivateRoute>
+          } 
+        />
+        <Route 
+          path="/userproducts" 
+          element={
+            <PrivateRoute>
+              <MyProduct />
+            </PrivateRoute>
+          } 
+        />
+        <Route 
+          path="/buyproductlist" 
+          element={
+            <PrivateRoute>
+              <BuyProductList />
             </PrivateRoute>
           } 
         />
