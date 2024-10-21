@@ -64,7 +64,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
 const loginUser = asyncHandler(async (req, res) => {
     const { email, username, password } = req.body;
-
+    console.log(req.body)
     if ((!email && !username) || !password) {
         res.status(400).json({
             message: "Email/Username and password are required",
@@ -146,7 +146,7 @@ const logoutUser = asyncHandler(async (req, res) => {
 const getUserById = asyncHandler(async (req, res) => {
     const userId  = req.user._id;
 
-    const user = await User.fingById(userId);
+    const user = await User.findById(userId);
 
     if (!user) {
         res.status(404).json({
