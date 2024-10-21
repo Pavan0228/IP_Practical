@@ -6,6 +6,7 @@ const router = express.Router();
 // Read a file
 router.get("/read", (req, res) => {
 	const filePath = req.query.path;
+    console.log(req.query.path)
 	fs.readFile(filePath, "utf8", (err, data) => {
 		if (err) return res.status(500).json({ message: err.message });
 		res.json({ content: data });

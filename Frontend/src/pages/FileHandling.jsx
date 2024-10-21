@@ -16,20 +16,20 @@ const FileManager = () => {
 			switch (operation) {
 				case "read":
 					response = await axios.get(
-						`http://localhost:3000/api/fileread?path=${filePath}`
+						`http://localhost:3000/api/files/read?path=${filePath}`
 					);
 					setFileContent(response.data.content);
 					setMessage("File read successfully");
 					break;
 				case "write":
-					response = await axios.post("http://localhost:3000/api/filewrite", {
+					response = await axios.post("http://localhost:3000/api/files/write", {
 						path: filePath,
 						content: fileContent,
 					});
 					setMessage(response.data.message);
 					break;
 				case "append":
-					response = await axios.post("http://localhost:3000/api/fileappend", {
+					response = await axios.post("http://localhost:3000/api/files/append", {
 						path: filePath,
 						content: fileContent,
 					});
@@ -37,25 +37,25 @@ const FileManager = () => {
 					break;
 				case "delete":
 					response = await axios.delete(
-						`http://localhost:3000/api/filedelete?path=${filePath}`
+						`http://localhost:3000/api/files/delete?path=${filePath}`
 					);
 					setMessage(response.data.message);
 					break;
 				case "createDir":
-					response = await axios.post("http://localhost:3000/api/filecreateDir", {
+					response = await axios.post("http://localhost:3000/api/files/createDir", {
 						path: dirPath,
 					});
 					setMessage(response.data.message);
 					break;
 				case "readDir":
 					response = await axios.get(
-						`http://localhost:3000/api/filereadDir?path=${dirPath}`
+						`http://localhost:3000/api/files/readDir?path=${dirPath}`
 					);
 					setMessage(`Directory contents: ${response.data.files.join(", ")}`);
 					break;
 				case "deleteDir":
 					response = await axios.delete(
-						`http://localhost:3000/api/filedeleteDir?path=${dirPath}`
+						`http://localhost:3000/api/files/deleteDir?path=${dirPath}`
 					);
 					setMessage(response.data.message);
 					break;
