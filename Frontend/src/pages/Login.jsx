@@ -7,14 +7,12 @@ const LoginPage = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
-    const [message, setMessage] = useState("");
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
         setLoading(true);
         setError("");
-        setMessage("");
 
         try {
             const response = await fetch(
@@ -36,17 +34,19 @@ const LoginPage = () => {
 
             // Handle successful login
             console.log("Login successful:", data);
-            setMessage("Login successful");
+            alert("Login successful!");
 
             // Set cookie
             Cookies.set("accessToken", data.accessToken, { expires: 7, path: "/", domain: "localhost" });
 
             localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
-            localStorage.setItem("userId",data.user._id)
+            localStorage.setItem("userId", data.user._id);
 
+            // Redirect to home page
             navigate("/");
         } catch (err) {
             setError(err.message || "An error occurred during login");
+            alert(err.message || "An error occurred during login");
         } finally {
             setLoading(false);
         }
@@ -93,18 +93,6 @@ const LoginPage = () => {
                             />
                         </div>
                     </div>
-
-                    {error && (
-                        <div className="text-red-500 text-sm text-center">
-                            {error}
-                        </div>
-                    )}
-
-                    {message && (
-                        <div className="text-blue-300 text-sm text-center">
-                            {message}
-                        </div>
-                    )}
 
                     <div>
                         <button

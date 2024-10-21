@@ -27,94 +27,94 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Protected Route */}
-        <Route 
-          path="/" 
+        {/* Protected Routes */}
+        <Route
+          path="/"
           element={
             <PrivateRoute>
               <Home />
             </PrivateRoute>
-          } 
+          }
         />
-        <Route 
-          path="/hotels" 
+        <Route
+          path="/hotels"
           element={
             <PrivateRoute>
               <Hotels />
             </PrivateRoute>
-          } 
+          }
         />
-        <Route 
-          path="/blood" 
+        <Route
+          path="/blood"
           element={
             <PrivateRoute>
               <Blood />
             </PrivateRoute>
-          } 
+          }
         />
-        <Route 
-          path="/bloodForm" 
+        <Route
+          path="/bloodForm"
           element={
             <PrivateRoute>
-              <BloodForm/>
+              <BloodForm />
             </PrivateRoute>
-          } 
+          }
         />
-        <Route 
-          path="/libManage" 
+        <Route
+          path="/libManage"
           element={
             <PrivateRoute>
-              <LibManagement/>
+              <LibManagement />
             </PrivateRoute>
-          } 
+          }
         />
-        <Route 
-          path="/add" 
+        <Route
+          path="/add"
           element={
             <PrivateRoute>
               <AddProduct />
             </PrivateRoute>
-          } 
+          }
         />
-        <Route 
-          path="/getallproducts" 
+        <Route
+          path="/getallproducts"
           element={
             <PrivateRoute>
               <ProductsList />
             </PrivateRoute>
-          } 
+          }
         />
-        <Route 
-          path="/product/:id" 
+        <Route
+          path="/product/:id"
           element={
             <PrivateRoute>
               <ProductDetail />
             </PrivateRoute>
-          } 
+          }
         />
-        <Route 
-          path="/userproducts" 
+        <Route
+          path="/userproducts"
           element={
             <PrivateRoute>
               <MyProduct />
             </PrivateRoute>
-          } 
+          }
         />
-        <Route 
-          path="/buyproductlist" 
+        <Route
+          path="/buyproductlist"
           element={
             <PrivateRoute>
               <BuyProductList />
             </PrivateRoute>
-          } 
+          }
         />
-        <Route 
-          path="/FileExample" 
+        <Route
+          path="/FileExample"
           element={
             <PrivateRoute>
-              <FileManager/>
+              <FileManager />
             </PrivateRoute>
-          } 
+          }
         />
       </Routes>
     </Router>
