@@ -144,7 +144,7 @@ const logoutUser = asyncHandler(async (req, res) => {
 });
 
 const getUserById = asyncHandler(async (req, res) => {
-    const { userId } = req.params;
+    const userId  = req.user._id;
 
     const user = await User.fingById(userId);
 
