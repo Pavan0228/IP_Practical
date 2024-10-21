@@ -41,6 +41,8 @@ const LoginPage = () => {
             // Set cookie
             Cookies.set("accessToken", data.accessToken, { expires: 7, path: "/", domain: "localhost" });
 
+            localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
+
             navigate("/");
         } catch (err) {
             setError(err.message || "An error occurred during login");

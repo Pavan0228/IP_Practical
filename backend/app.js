@@ -5,7 +5,8 @@ import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.router.js";
 import hotelRouter from "./routes/hotel.router.js"; // Ensure this path is correct
 import bloodRouter from "./routes/blood.router.js";
-import bookRouter from "./routes/book.router.js"
+import bookRouter from "./routes/book.router.js"import productRouter from "./routes/product.routes.js";
+
 dotenv.config();
 
 const app = express();
@@ -26,6 +27,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/hotels", hotelRouter);
 app.use("/api/blood", bloodRouter);
 app.use("/api/books",bookRouter)
+app.use("/api/product" , productRouter);
 
 // Global error handling
 app.use((err, req, res, next) => {

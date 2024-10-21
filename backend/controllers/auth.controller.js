@@ -77,14 +77,14 @@ const loginUser = asyncHandler(async (req, res) => {
         if (!user) {
             res.status(404).json({
                 message: "Email not found",
-            })
+            });
         }
     } else if (username) {
         user = await User.findOne({ username });
         if (!user) {
             res.status(404).json({
                 message: "Username not found",
-            })
+            });
         }
     }
 
@@ -96,7 +96,8 @@ const loginUser = asyncHandler(async (req, res) => {
         });
     }
 
-    const { accessToken, refreshToken } = await generateAccessTokenAndRefreshToken(user._id);
+    const { accessToken, refreshToken } =
+        await generateAccessTokenAndRefreshToken(user._id);
 
     const options = {
         httpOnly: true,
@@ -142,4 +143,21 @@ const logoutUser = asyncHandler(async (req, res) => {
         
 });
 
-export { registerUser, loginUser, logoutUser };
+const getUserById = asyncHandler(async (req, res) => {
+    const { userId } = req.params;
+
+    const user = await User.fingById(userId);
+
+    if (!user) {
+        res.status(404).json({
+            message: "User not found",
+        });
+    }
+
+    res.status(200).json({
+        message: "User found",
+        user,
+    });
+});
+
+export { registerUser, loginUser, logoutUser, getUserById };
