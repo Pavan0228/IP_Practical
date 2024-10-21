@@ -32,6 +32,15 @@ const userSchema = new mongoose.Schema(
 		refreshToken: {
 			type: String,
 		},
+		purchasedBooks: [
+			{
+				bookId: {
+					type: mongoose.Schema.Types.ObjectId,
+					ref: "Book",
+				},
+				purchaseDate: { type: Date, default: Date.now },
+			},
+		],
 	},
 	{
 		timestamps: true,

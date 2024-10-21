@@ -29,6 +29,7 @@ const Navbar = () => {
                                 <NavLink to="/hotels">Hotels</NavLink>
                                 <NavLink to="/blood">Blood</NavLink>
                                 <NavLink to="/bloodForm">Blood Form</NavLink>
+                                <NavLink to="/libManage">Lib Mangment</NavLink>
                             </div>
                         </div>
                     </div>

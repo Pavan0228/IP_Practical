@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar"; // Import Navbar
 import Hotels from "./pages/Hotels";
 import Blood from "./pages/Blood";
 import BloodForm from "./pages/BloodForm";
+import LibManagement from "./pages/LibManagment";
 
 function App() {
   return (
@@ -48,6 +49,14 @@ function App() {
           element={
             <PrivateRoute>
               <BloodForm/>
+            </PrivateRoute>
+          } 
+        />
+        <Route 
+          path="/libManage" 
+          element={
+            <PrivateRoute>
+              <LibManagement/>
             </PrivateRoute>
           } 
         />
