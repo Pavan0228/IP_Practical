@@ -1,175 +1,302 @@
-# IP_Practical
-Extentsions
+# Ultimate Cheat Code for Passing Your IP Practical Exam
+
+This project is the ultimate cheat code for passing your IP practical exam. It is an implementation of a practical exercise for Information Processing, featuring a frontend and a backend designed to work seamlessly together.
+
+
+## Features
+
+- User authentication
+- Hotel management
+- Blood management
+- E-commerce management
+- Library management
+
+
+
+## Vs Code Extensions
 1. npm Intellisense
 2. Path Intellisense
 3. Tailwind CSS IntelliSense
 4. DevSnip Pro
-
-
-To download Nodejs
-### Step 1: Download Node.js
-
-1. **Visit the Node.js website**:
-   - Go to the official Node.js website: [nodejs.org](https://nodejs.org/).
-
-2. **Choose the version to download**:
-   - You'll see two versions available: **LTS (Long Term Support)** and **Current**. Choose the LTS version for better stability unless you need features from the Current version.
-
-3. **Download the installer**:
-   - Click on the appropriate installer for Windows (e.g., `Windows Installer (.msi)`).
-
-### Step 2: Install Node.js
-
-1. **Run the installer**:
-   - Once the download is complete, double-click the installer to run it.
-
-2. **Follow the installation wizard**:
-   - Click `Next` on the welcome screen.
-   - Accept the license agreement and click `Next`.
-   - Choose the installation location (or leave it as the default) and click `Next`.
-   - Make sure the checkbox for "Add to PATH" is selected (this is crucial for setting the environment variables automatically) and click `Next`.
-   - Click `Install` to start the installation process.
-
-3. **Complete the installation**:
-   - Once the installation is finished, click `Finish`.
-
-### Step 3: Verify Node.js Installation
-
-1. **Open Command Prompt**:
-   - Press `Win + R`, type `cmd`, and hit `Enter` to open the Command Prompt.
-
-2. **Check Node.js version**:
-   - Run the following command to verify that Node.js is installed successfully:
-     ```bash
-     node -v
-     ```
-   - This should display the installed version of Node.js.
-
-3. **Check npm version** (Node Package Manager):
-   - Run the following command to verify that npm is also installed:
-     ```bash
-     npm -v
-     ```
-   - This should display the installed version of npm.
-
-### Step 4: Set Environment Variables (if needed)
-
-**Note**: If you followed the installation steps and selected "Add to PATH," Node.js should already be in your environment variables. To manually add or verify it:
-
-1. **Open System Properties**:
-   - Right-click on the Start button and select `System`.
-   - Click on `Advanced system settings` on the left sidebar.
-
-2. **Open Environment Variables**:
-   - In the System Properties window, click on the `Environment Variables` button.
-
-3. **Add or Edit Path**:
-   - In the "System variables" section, find the `Path` variable and select it, then click `Edit`.
-   - If Node.js is not listed, click `New` and add the path to the Node.js installation, which is usually:
-     ```
-     C:\Program Files\nodejs\
-     ```
-   - Click `OK` to close all dialog boxes.
-
-### Step 5: Restart Command Prompt
-
-1. **Close and reopen Command Prompt**:
-   - Make sure to close and reopen Command Prompt for the changes to take effect.
-
-### Conclusion
-
-Now you have successfully downloaded and installed Node.js on your Windows 11 system, and it's properly set up in the environment variables. You can start using Node.js for your development needs!
+5. ES7 React/Redux/GraphQL/React-Native snippets
+6. Auto Close Tag
+7. Auto Rename Tag
+8. Error Lens
 
 
 
+## Getting Started
+
+### Prerequisites
+
+Ensure you have the following installed on your machine:
+
+- [Node.js (version 14 or later)](#installing-nodejs-on-windows-11)
+- [MongoDB (latest version)](#mongodb-installation-guide-for-windows-11)
+- npm (Node package manager)
+
+### Installation
+
+Follow these steps to set up the project locally.
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/Sridhar1030/IP_Practical.git
+   cd IP_Practical
+   ```
+
+3. **Set up the backend:**
+
+   Navigate to the backend folder and install the dependencies:
+
+   ```bash
+   cd backend
+   npm install
+   ```
+
+4. **Set up the frontend:**
+
+   Open another terminal, navigate to the frontend folder and install the dependencies:
+
+   ```bash
+   cd Frontend
+   npm install
+   ```
+
+### Configuration
+
+1. **Backend Configuration:**
+   - Set up your MongoDB connection string and other necessary variables in the `.env` file.
+
+2. **Frontend Configuration:**
+   - If needed, configure any environment variables required for the React app.
+
+### Running the Project
+
+1. **Start the backend server:**
+
+   Navigate to the backend directory and run:
+
+   ```bash
+   npm run dev
+   ```
+
+2. **Start the frontend application:**
+
+   Open another terminal, navigate to the frontend directory, and run:
+
+   ```bash
+   npm run dev
+   ```
+
+### Usage
+
+- Access the frontend at `http://localhost:5173` and interact with the application.
+- The backend API will be available at `http://localhost:3000`.
+
+## References
+
+- [Inventory](https://github.com/DurveshRoge/Inventory)
+- [Todo](https://github.com/Pavan-0228/Todo)
+- [QR Hackathon](https://github.com/Sridhar1030/QR_Hackathon)
+- [E-commerce management](https://github.com/Sridhar1030/BrowseAndBuy)
+
+
+# Installing Node.js on Windows 11
+A comprehensive guide to download and install Node.js on your Windows 11 system.
+
+## Step 1: Download Node.js
+
+```bash
+# Visit the official Node.js website
+https://nodejs.org/
+```
+
+1. **Visit Node.js Website**
+   - Go to [nodejs.org](https://nodejs.org/)
+   
+2. **Choose Version**
+   - Select LTS version (recommended)
+   - Or Current version (latest features)
+
+3. **Download Windows Installer**
+   - Click on Windows Installer (.msi)
+   - Save the file to your computer
+
+## Step 2: Installation Process
+
+1. **Run the Installer**
+   - Double-click downloaded .msi file
+   - Follow installation wizard
+
+2. **Installation Settings**
+   ```
+   ✓ Accept license agreement
+   ✓ Choose installation directory (default recommended)
+   ✓ Ensure "Add to PATH" is selected
+   ✓ Click Install
+   ```
+
+3. **Complete Installation**
+   - Click Finish when prompted
+
+## Step 3: Verify Installation
+
+Open Command Prompt and run:
+
+```bash
+# Check Node.js version
+node -v
+
+# Check npm version
+npm -v
+```
+
+## Step 4: Environment Variables
+
+```bash
+# Default Node.js Path
+C:\Program Files\nodejs\
+```
+
+To verify/add to PATH manually:
+1. Right-click Start → System
+2. Advanced system settings
+3. Environment Variables
+4. System variables → Path → Edit
+5. Add Node.js path if missing
+
+## Quick Troubleshooting
+
+If Node.js commands aren't recognized:
+1. Restart Command Prompt
+2. Verify PATH in Environment Variables
+3. Re-run installation if necessary
+
+## System Requirements
+
+- Windows 11
+- Administrator privileges
+- Internet connection
+- Minimum 200MB free space
+
+## Additional Resources
+
+- [Node.js Documentation](https://nodejs.org/docs)
+- [npm Documentation](https://docs.npmjs.com)
+- [Node.js GitHub](https://github.com/nodejs/node)
 
 
 
+# MongoDB Installation Guide for Windows 11
+A step-by-step guide to install MongoDB on Windows 11.
 
+## Prerequisites
 
+- Windows 11
+- Administrator privileges
+- Minimum 5GB free disk space
+- Internet connection
 
+## Step 1: Download MongoDB
 
+```bash
+# Visit MongoDB official website
+https://www.mongodb.com/
+```
 
-//To download mongoDB
-Here are the steps to download and install MongoDB on Windows 11, including setting it up in environment variables:
+1. **Access Download Center**
+   - Visit [MongoDB Community Server](https://www.mongodb.com/try/download/community)
+   - Select version: Latest
+   - Platform: Windows
+   - Package: MSI
 
-### Step 1: Download MongoDB
+## Step 2: Installation Process
 
-1. **Visit the MongoDB website**:
-   - Go to the official MongoDB website: [mongodb.com](https://www.mongodb.com/).
+1. **Run Installer**
+   ```
+   ✓ Double-click downloaded .msi file
+   ✓ Accept license agreement
+   ✓ Choose "Complete" installation
+   ✓ Install MongoDB as a Service (recommended)
+   ✓ Install MongoDB Compass (optional GUI)
+   ```
 
-2. **Navigate to the Download Center**:
-   - Click on the **"Get Started"** button or directly go to the [MongoDB Community Server download page](https://www.mongodb.com/try/download/community).
+2. **Default Installation Paths**
+   ```
+   Service: C:\Program Files\MongoDB\Server\[version]\bin
+   Data: C:\data\db
+   Log: C:\Program Files\MongoDB\Server\[version]\log
+   ```
 
-3. **Choose the version to download**:
-   - Select the latest version of MongoDB for Windows. Choose the **MSI package** for easy installation.
+## Step 3: Environment Variables Setup
 
-4. **Download the installer**:
-   - Click the **"Download"** button to get the installer.
+1. **Add to System PATH**
+   ```bash
+   # Add this path to environment variables
+   C:\Program Files\MongoDB\Server\[version]\bin
+   ```
 
-### Step 2: Install MongoDB
+2. **Create Data Directory**
+   ```bash
+   # Create default data directory
+   md C:\data\db
+   ```
 
-1. **Run the installer**:
-   - Once the download is complete, double-click the installer (`.msi` file) to run it.
+## Step 4: Verify Installation
 
-2. **Follow the installation wizard**:
-   - Click `Next` on the welcome screen.
-   - Accept the license agreement and click `Next`.
-   - Choose **"Complete"** installation when prompted.
-   - Select the option to **Install MongoDB as a Service** (this is recommended) and proceed with the default settings. Click `Next`.
-   - When prompted, choose to install **MongoDB Compass** if you want a GUI for managing your databases, or you can skip this.
+1. **Start MongoDB Server**
+   ```bash
+   # Start MongoDB service
+   mongod
+   ```
 
-3. **Complete the installation**:
-   - Click `Finish` to complete the installation.
+2. **Connect to MongoDB**
+   ```bash
+   # Open MongoDB shell
+   mongo
+   ```
 
-### Step 3: Set Up MongoDB Environment Variables
+## Common Commands
 
-1. **Open System Properties**:
-   - Right-click on the Start button and select `System`.
-   - Click on `Advanced system settings` on the left sidebar.
+```bash
+# Check MongoDB version
+mongo --version
 
-2. **Open Environment Variables**:
-   - In the System Properties window, click on the `Environment Variables` button.
+# Start MongoDB service
+net start MongoDB
 
-3. **Add MongoDB to Path**:
-   - In the "System variables" section, find the `Path` variable and select it, then click `Edit`.
-   - Click `New` and add the path to the MongoDB installation's `bin` directory. By default, it should be:
-     ```
-     C:\Program Files\MongoDB\Server\<version>\bin
-     ```
-     Replace `<version>` with the version number you installed (e.g., `6.0`).
+# Stop MongoDB service
+net stop MongoDB
 
-4. **Set the Data Directory (Optional)**:
-   - MongoDB requires a data directory to store its data. By default, it uses `C:\data\db`. You can create this directory manually:
-     - Open `File Explorer`, navigate to `C:\`, right-click, select `New > Folder`, and create a folder named `data`.
-     - Inside the `data` folder, create another folder named `db`.
+# Access MongoDB shell
+mongosh
+```
 
-5. **Click OK** to close all dialog boxes.
+## Directory Structure
 
-### Step 4: Verify MongoDB Installation
+```
+C:\
+├── Program Files\MongoDB\
+│   └── Server\
+│       └── [version]\
+│           ├── bin\
+│           └── log\
+└── data\
+    └── db\
+```
 
-1. **Open Command Prompt**:
-   - Press `Win + R`, type `cmd`, and hit `Enter` to open the Command Prompt.
+## Troubleshooting
 
-2. **Start the MongoDB server**:
-   - Run the following command to start the MongoDB server:
-     ```bash
-     mongod
-     ```
-   - If the command is recognized and the server starts, you will see messages indicating that MongoDB is running.
+If MongoDB fails to start:
+1. Check if service is running
+2. Verify data directory exists
+3. Check port 27017 availability
+4. Review MongoDB logs
 
-3. **Open a new Command Prompt window**:
-   - Press `Win + R`, type `cmd`, and hit `Enter` again to open another Command Prompt.
+## Additional Resources
 
-4. **Connect to MongoDB**:
-   - In the new Command Prompt window, run the following command to connect to the MongoDB server:
-     ```bash
-     mongo
-     ```
-   - You should see a MongoDB shell prompt, indicating that you are connected to the server.
-
-### Conclusion
-
-You have successfully downloaded, installed, and configured MongoDB on your Windows 11 system, along with setting it in the environment variables. You can now start using MongoDB for your database needs!
-
-
+- [MongoDB Documentation](https://docs.mongodb.com/)
+- [MongoDB University](https://university.mongodb.com/)
+- [MongoDB Community](https://www.mongodb.com/community/)
