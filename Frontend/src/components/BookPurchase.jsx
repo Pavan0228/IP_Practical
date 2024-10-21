@@ -4,7 +4,9 @@ import axios from "axios";
 const BuyBook = () => {
     const [books, setBooks] = useState([]);
     const [selectedBookId, setSelectedBookId] = useState("");
-    const userId = localStorage.getItem("userId"); // Get userId from local storage
+    const userId = localStorage.getItem("userId");
+    console.log(userId); // Check the output
+
 
     // Fetch all books to display in the dropdown
     const fetchBooks = async () => {

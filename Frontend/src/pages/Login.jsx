@@ -42,6 +42,7 @@ const LoginPage = () => {
             Cookies.set("accessToken", data.accessToken, { expires: 7, path: "/", domain: "localhost" });
 
             localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
+            localStorage.setItem("userId",data.user._id)
 
             navigate("/");
         } catch (err) {

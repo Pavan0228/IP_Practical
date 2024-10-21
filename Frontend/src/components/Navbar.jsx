@@ -30,6 +30,7 @@ const Navbar = () => {
                                 <NavLink to="/blood">Blood</NavLink>
                                 <NavLink to="/bloodForm">Blood Form</NavLink>
                                 <NavLink to="/libManage">Lib Mangment</NavLink>
+                                <NavLink to="/FileExample">File</NavLink>
                             </div>
                         </div>
                     </div>

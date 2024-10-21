@@ -16,6 +16,7 @@ import ProductsList from "./components/ProductsList";
 import ProductDetail from "./components/ProductDetail";
 import MyProduct from "./components/MyProduct";
 import BuyProductList from "./components/BuyProductList";
+import FileManager from "./pages/FileHandling";
 
 function App() {
   return (
@@ -104,6 +105,14 @@ function App() {
           element={
             <PrivateRoute>
               <BuyProductList />
+            </PrivateRoute>
+          } 
+        />
+        <Route 
+          path="/FileExample" 
+          element={
+            <PrivateRoute>
+              <FileManager/>
             </PrivateRoute>
           } 
         />
