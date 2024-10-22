@@ -10,7 +10,7 @@ This project is the ultimate cheat code for passing your IP practical exam. It i
 - Blood management
 - E-commerce management
 - Library management
-
+- Files management
 
 
 ## Getting Started
