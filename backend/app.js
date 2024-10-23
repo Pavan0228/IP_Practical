@@ -15,7 +15,8 @@ const app = express();
 
 // Configure CORS to allow requests from your frontend domain (use environment variable for flexibility)
 const corsOptions = {
-    origin: "*",
+    origin: "http://localhost:5174",
+    credentials: true, // Required for cookies
 };
 
 app.use(cors(corsOptions));
