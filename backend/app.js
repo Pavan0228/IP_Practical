@@ -9,6 +9,8 @@ import bookRouter from "./routes/book.router.js";
 import productRouter from "./routes/product.routes.js";
 import fileRoutes from "./routes/file.routes.js"
 
+import zealRoutes from "./routes/zeal.routes.js"
+
 dotenv.config();
 
 const app = express();
@@ -31,6 +33,8 @@ app.use("/api/blood", bloodRouter);
 app.use("/api/books",bookRouter)
 app.use("/api/product" , productRouter);
 app.use('/api/files', fileRoutes);
+
+app.use('/api/Zeal/',zealRoutes)
 
 
 // Global error handling

@@ -17,6 +17,9 @@ import ProductDetail from "./components/ProductDetail";
 import MyProduct from "./components/MyProduct";
 import BuyProductList from "./components/BuyProductList";
 import FileManager from "./pages/FileHandling";
+import { Zeal } from "../../backend/models/Zeal.model";
+import Zealform from "./components/Zealform";
+import ShowEvents from "./components/ShowEvents";
 
 function App() {
   return (
@@ -113,6 +116,23 @@ function App() {
           element={
             <PrivateRoute>
               <FileManager />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/zeal"
+          element={
+            <PrivateRoute>
+              <Zealform />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/showEvents"
+          element={
+            <PrivateRoute>
+              <ShowEvents/>
+
             </PrivateRoute>
           }
         />
